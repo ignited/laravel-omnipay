@@ -7,7 +7,7 @@ Integrates the [Omnipay](https://github.com/adrianmacneil/omnipay) PHP library w
 
 Include the laravel-omnipay package as a dependency in your `composer.json`:
 
-    "ignited/laravel-omnipay": "1.*"
+    "ignited/laravel-omnipay": "~1.0"
     
 **Note:** You don't need to include the `omnipay/omnipay` in your composer.json - it is a requirement of the `laravel-omnipay` package.
 
