@@ -3,7 +3,7 @@ Omnipay for Laravel 4
 
 Integrates the [Omnipay](https://github.com/adrianmacneil/omnipay) PHP library with Laravel 4 via a ServiceProvider to make Configuring multiple payment tunnels a breeze!
 
-### Configuruation
+### Composer Configuration
 
 Include the laravel-omnipay package as a dependency in your `composer.json`:
 
