@@ -8,7 +8,7 @@ return array(
 	// Add in each gateway here
 	'gateways' => array(
 		'paypal' => array(
-			'driver' => 'Paypal_Express',
+			'driver' => 'PayPal_Express',
 			'options' => array(
 				'solutionType' => '',
 				'landingPage' => '',
