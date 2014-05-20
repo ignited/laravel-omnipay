@@ -1,6 +1,10 @@
 Omnipay for Laravel 4
 ==============
 
+[![Total Downloads](https://img.shields.io/packagist/dt/ignited/laravel-omnipay.svg)](https://packagist.org/packages/ignited/laravel-omnipay)
+[![Latest Version](http://img.shields.io/packagist/v/ignited/laravel-omnipay.svg)](https://github.com/ignited/laravel-omnipay/releases)
+[![Dependency Status](https://www.versioneye.com/php/ignited:laravel-omnipay/badge.svg)](https://www.versioneye.com/php/ignited:laravel-omnipay)
+
 Integrates the [Omnipay](https://github.com/adrianmacneil/omnipay) PHP library with Laravel 4 via a ServiceProvider to make Configuring multiple payment tunnels a breeze!
 
 ### Composer Configuration
