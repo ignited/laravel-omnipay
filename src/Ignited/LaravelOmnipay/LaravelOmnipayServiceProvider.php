@@ -14,7 +14,9 @@ class LaravelOmnipayServiceProvider extends ServiceProvider {
 
 	public function boot()
 	{
-		$this->package('ignited/laravel-omnipay', 'ignited/laravel-omnipay');
+		// Publish config
+		$configPath = __DIR__ . '/../../config/config.php';
+		$this->publishes([$configPath => config_path('laravel-omnipay.php')], 'config');
 	}
 
 	/**
@@ -37,7 +39,7 @@ class LaravelOmnipayServiceProvider extends ServiceProvider {
 			$factory = new GatewayFactory;
 			$manager = new LaravelOmnipayManager($app, $factory);
 
-			return $manager;	
+			return $manager;
 		});
 	}
 
@@ -48,7 +50,7 @@ class LaravelOmnipayServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('omnipay');
+		return ['omnipay'];
 	}
 
 }
