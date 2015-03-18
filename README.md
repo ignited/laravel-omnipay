@@ -1,21 +1,21 @@
-Omnipay for Laravel 4
+Omnipay for Laravel 5
 ==============
 
 [![Total Downloads](https://img.shields.io/packagist/dt/ignited/laravel-omnipay.svg)](https://packagist.org/packages/ignited/laravel-omnipay)
 [![Latest Version](http://img.shields.io/packagist/v/ignited/laravel-omnipay.svg)](https://github.com/ignited/laravel-omnipay/releases)
 [![Dependency Status](https://www.versioneye.com/php/ignited:laravel-omnipay/badge.svg)](https://www.versioneye.com/php/ignited:laravel-omnipay)
 
-Integrates the [Omnipay](https://github.com/adrianmacneil/omnipay) PHP library with Laravel 4 via a ServiceProvider to make Configuring multiple payment tunnels a breeze!
+Integrates the [Omnipay](https://github.com/adrianmacneil/omnipay) PHP library with Laravel 5 via a ServiceProvider to make Configuring multiple payment tunnels a breeze!
 
-### Now using Omnipay 2.0
+### Now using Omnipay 2.3
  
-Version `1.1` and onwards has been updated to use Omnipay 2.0.
+Version `2.0` and onwards has been updated to use Omnipay 2.3.
 
 ### Composer Configuration
 
 Include the laravel-omnipay package as a dependency in your `composer.json`:
 
-    "ignited/laravel-omnipay": "1.*"
+    "ignited/laravel-omnipay": "2.*"
     
 **Note:** You don't need to include the `omnipay/common` in your composer.json - it is a requirement of the `laravel-omnipay` package.
 
@@ -33,43 +33,45 @@ Alternatively you can include every gateway by requring:
 
 Run `composer install` to download the dependencies.
 
-Add a ServiceProvider to your providers array in `app/config/app.php`:
+Add a ServiceProvider to your providers array in `config/app.php`:
 
 ```php
-'providers' => array(
-	
+'providers' => [
+
 	'Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider',
 
-)
+]
 ```
 
 Add the `Omnipay` facade to your facades array:
 
+```php
 	'Omnipay' => 'Ignited\LaravelOmnipay\Facades\OmnipayFacade',
-	
-Finally, publish the configuration files via `php artisan config:publish ignited/laravel-omnipay`.
+```
+
+Finally, publish the configuration files via `php artisan vendor:publish`.
 
 ### Configuration
 
-Once you have published the configuration files, you can add your gateway options to the config file in `app/config/packages/ignited/laravel-omnipay/config.php`.
+Once you have published the configuration files, you can add your gateway options to the config file in `config/laravel-omnipay.php`.
 
 ### Usage
 
 ```php
-$cardInput = array(
-	'number' => '4444333322221111',
-	'firstName' => 'MR. WALTER WHITE',
+$cardInput = [
+	'number'      => '4444333322221111',
+	'firstName'   => 'MR. WALTER WHITE',
 	'expiryMonth' => '03',
-	'expiryYear' => '16',
-	'cvv' => '333',
-);
+	'expiryYear'  => '16',
+	'cvv'         => '333',
+];
 
 $card = Omnipay::creditCard($cardInput);
 $response = Omnipay::purchase([
-	'amount' => '100.00',
+	'amount'    => '100.00',
 	'returnUrl' => 'http://bobjones.com/payment/return',
 	'cancelUrl' => 'http://bobjones.com/payment/cancel',
-	'card' => $cardInput
+	'card'      => $cardInput
 ])->send();
 
 dd($response->getMessage());
@@ -84,7 +86,7 @@ Omnipay::setGateway('eway');
 
 $response = Omnipay::purchase([
 	'amount' => '100.00',
-	'card' => $cardInput
+	'card'   => $cardInput
 ])->send();
 
 dd($response->getMessage());
