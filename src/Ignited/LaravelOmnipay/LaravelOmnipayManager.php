@@ -30,7 +30,7 @@ class LaravelOmnipayManager {
      *
      * @var array
      */
-	protected $gateways = array();
+	protected $gateways = [];
 
 	/**
      * Create a new omnipay manager instance.
@@ -119,7 +119,7 @@ class LaravelOmnipayManager {
 
     public function __call($method, $parameters)
     {
-        $callable = array($this->gateway(), $method);
+        $callable = [$this->gateway(), $method];
 
         if(method_exists($this->gateway(), $method))
         {
