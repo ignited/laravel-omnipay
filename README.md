@@ -1,4 +1,4 @@
-Omnipay for Laravel 5
+Omnipay for Laravel 5 & Lumen
 ==============
 
 [![Total Downloads](https://img.shields.io/packagist/dt/ignited/laravel-omnipay.svg)](https://packagist.org/packages/ignited/laravel-omnipay)
@@ -37,6 +37,8 @@ Alternatively you can include every gateway by requring:
 
 Run `composer install` to download the dependencies.
 
+#### Laravel 5
+
 Add a ServiceProvider to your providers array in `config/app.php`:
 
 ```php
@@ -54,6 +56,20 @@ Add the `Omnipay` facade to your facades array:
 ```
 
 Finally, publish the configuration files via `php artisan vendor:publish`.
+
+#### Lumen
+
+For `Lumen` add the following in your bootstrap/app.php
+```php
+$app->register(Ignited\LaravelOmnipay\LumenOmnipayServiceProvider::class);
+```
+
+Copy the laravel-omnipay.php file from the config directory to config/laravel-omnipay.php
+
+And also add the following to bootstrap/app.php
+```php
+$app->configure('laravel-omnipay');
+```
 
 ### Configuration
 
