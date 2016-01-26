@@ -1,10 +1,12 @@
-<?php namespace Ignited\LaravelOmnipay;
+<?php
+
+namespace Ignited\LaravelOmnipay;
 
 use Illuminate\Support\ServiceProvider;
 use Omnipay\Common\GatewayFactory;
 
-abstract class BaseServiceProvider extends ServiceProvider {
-
+abstract class BaseServiceProvider extends ServiceProvider
+{
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -23,13 +25,12 @@ abstract class BaseServiceProvider extends ServiceProvider {
     }
 
     /**
-     * Register the Omnipay manager
+     * Register the Omnipay manager.
      */
     public function registerManager()
     {
-        $this->app['omnipay'] = $this->app->share(function($app)
-        {
-            $factory = new GatewayFactory;
+        $this->app['omnipay'] = $this->app->share(function ($app) {
+            $factory = new GatewayFactory();
             $manager = new LaravelOmnipayManager($app, $factory);
 
             return $manager;
@@ -45,5 +46,4 @@ abstract class BaseServiceProvider extends ServiceProvider {
     {
         return ['omnipay'];
     }
-
 }

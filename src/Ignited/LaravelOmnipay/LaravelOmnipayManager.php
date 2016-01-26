@@ -1,11 +1,12 @@
-<?php namespace Ignited\LaravelOmnipay;
+<?php
 
-use Closure;
-use Omnipay\Common\GatewayFactory;
-use Omnipay\Common\Helper;
+namespace Ignited\LaravelOmnipay;
+
 use Omnipay\Common\CreditCard;
+use Omnipay\Common\Helper;
 
-class LaravelOmnipayManager {
+class LaravelOmnipayManager
+{
     /**
      * The application instance.
      *
@@ -14,13 +15,15 @@ class LaravelOmnipayManager {
     protected $app;
 
     /**
-     * Omnipay Factory Instance
+     * Omnipay Factory Instance.
+     *
      * @var \Omnipay\Common\GatewayFactory
      */
     protected $factory;
 
     /**
-     * The current gateway to use
+     * The current gateway to use.
+     *
      * @var string
      */
     protected $gateway;
@@ -35,7 +38,7 @@ class LaravelOmnipayManager {
     /**
      * Create a new omnipay manager instance.
      *
-     * @param  \Illuminate\Foundation\Application $app
+     * @param \Illuminate\Foundation\Application $app
      * @param $factory
      */
     public function __construct($app, $factory)
@@ -45,16 +48,17 @@ class LaravelOmnipayManager {
     }
 
     /** 
-     * Get an instance of the specified gateway
+     * Get an instance of the specified gateway.
+     *
      * @param  index of config array to use
+     *
      * @return Omnipay\Common\AbstractGateway
      */
     public function gateway($name = null)
     {
         $name = $name ?: $this->getGateway();
 
-        if ( ! isset($this->gateways[$name]))
-        {
+        if (!isset($this->gateways[$name])) {
             $this->gateways[$name] = $this->resolve($name);
         }
 
@@ -65,20 +69,18 @@ class LaravelOmnipayManager {
     {
         $config = $this->getConfig($name);
 
-        if(is_null($config))
-        {
+        if (is_null($config)) {
             throw new \UnexpectedValueException("Gateway [$name] is not defined.");
         }
 
         $gateway = $this->factory->create($config['driver']);
 
-        $class = trim(Helper::getGatewayClassName($config['driver']), "\\");
+        $class = trim(Helper::getGatewayClassName($config['driver']), '\\');
 
         $reflection = new \ReflectionClass($class);
 
-        foreach($config['options'] as $optionName=>$value)
-        {
-            $method = 'set' . ucfirst($optionName);
+        foreach ($config['options'] as $optionName => $value) {
+            $method = 'set'.ucfirst($optionName);
 
             if ($reflection->hasMethod($method)) {
                 $gateway->{$method}($value);
@@ -105,10 +107,10 @@ class LaravelOmnipayManager {
 
     public function getGateway()
     {
-        if(!isset($this->gateway))
-        {
+        if (!isset($this->gateway)) {
             $this->gateway = $this->getDefault();
         }
+
         return $this->gateway;
     }
 
@@ -121,8 +123,7 @@ class LaravelOmnipayManager {
     {
         $callable = [$this->gateway(), $method];
 
-        if(method_exists($this->gateway(), $method))
-        {
+        if (method_exists($this->gateway(), $method)) {
             return call_user_func_array($callable, $parameters);
         }
 
