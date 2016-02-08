@@ -26,6 +26,12 @@ class LaravelOmnipayManager {
     protected $gateway;
 
     /**
+     * The Guzzle client to use (null means use default)
+     * @var \Guzzle\Http\Client|null
+     */
+    protected $httpClient;
+
+    /**
      * The array of resolved queue connections.
      *
      * @var array
@@ -70,7 +76,7 @@ class LaravelOmnipayManager {
             throw new \UnexpectedValueException("Gateway [$name] is not defined.");
         }
 
-        $gateway = $this->factory->create($config['driver']);
+        $gateway = $this->factory->create($config['driver'], $this->getHttpClient());
 
         $class = trim(Helper::getGatewayClassName($config['driver']), "\\");
 
@@ -115,6 +121,16 @@ class LaravelOmnipayManager {
     public function setGateway($name)
     {
         $this->gateway = $name;
+    }
+
+    public function setHttpClient($httpClient)
+    {
+        $this->httpClient = $httpClient;
+    }
+
+    public function getHttpClient()
+    {
+        return $this->httpClient;
     }
 
     public function __call($method, $parameters)
