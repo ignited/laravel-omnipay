@@ -55,7 +55,11 @@ Add the `Omnipay` facade to your facades array:
 	'Omnipay' => 'Ignited\LaravelOmnipay\Facades\OmnipayFacade',
 ```
 
-Finally, publish the configuration files via `php artisan vendor:publish`.
+Finally, publish the configuration files:
+
+```
+php artisan vendor:publish --provider="Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider" --tag=config
+```
 
 #### Lumen
 
