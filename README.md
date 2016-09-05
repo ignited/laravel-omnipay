@@ -11,9 +11,11 @@ Integrates the [Omnipay](https://github.com/adrianmacneil/omnipay) PHP library w
 
 For Laravel 4 see the [version 1.x](https://github.com/ignited/laravel-omnipay/tree/1.1.0) tree
 
-### Now using Omnipay 2.3
+### Now using Omnipay 2.3/2.5
  
 Version `2.0` and onwards has been updated to use Omnipay 2.3.
+
+Version `2.2` and onwards is using Omnipay 2.5
 
 ### Composer Configuration
 
