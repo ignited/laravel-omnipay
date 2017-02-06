@@ -27,12 +27,12 @@ abstract class BaseServiceProvider extends ServiceProvider {
      */
     public function registerManager()
     {
-		$this->app->singleton('omnipay', function ($app) {
-			$factory = new GatewayFactory;
+        $this->app->singleton('omnipay', function ($app) {
+            $factory = new GatewayFactory;
             $manager = new LaravelOmnipayManager($app, $factory);
 
             return $manager;
-		});
+        });
     }
 
     /**
