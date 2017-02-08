@@ -82,9 +82,11 @@ class LaravelOmnipayManager {
 
         $reflection = new \ReflectionClass($class);
 
+        $toCamelCase = create_function('$c', 'return strtoupper($c[1]);');
+
         foreach($config['options'] as $optionName=>$value)
         {
-            $method = 'set' . ucfirst($optionName);
+            $method = 'set' . preg_replace_callback('/_([a-z])/', $toCamelCase, $optionName);
 
             if ($reflection->hasMethod($method)) {
                 $gateway->{$method}($value);
