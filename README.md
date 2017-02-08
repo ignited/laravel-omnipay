@@ -17,6 +17,8 @@ Version `2.0` and onwards has been updated to use Omnipay 2.3.
 
 Version `2.2` and onwards is using Omnipay 2.5
 
+Version `2.3` and onwards supports Laravel 5.4
+
 ### Composer Configuration
 
 Include the laravel-omnipay package as a dependency in your `composer.json`:
