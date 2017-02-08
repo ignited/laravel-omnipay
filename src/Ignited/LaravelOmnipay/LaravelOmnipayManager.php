@@ -49,19 +49,19 @@ class LaravelOmnipayManager {
      * @param  index of config array to use
      * @return Omnipay\Common\AbstractGateway
      */
-    public function gateway($name = null)
+    public function gateway($name = null, $httpClient = null, $httpRequest = null)
     {
         $name = $name ?: $this->getGateway();
 
         if ( ! isset($this->gateways[$name]))
         {
-            $this->gateways[$name] = $this->resolve($name);
+            $this->gateways[$name] = $this->resolve($name, $httpClient, $httpRequest);
         }
 
         return $this->gateways[$name];
     }
 
-    protected function resolve($name)
+    protected function resolve($name, $httpClient = null, $httpRequest = null)
     {
         $config = $this->getConfig($name);
 
@@ -70,7 +70,7 @@ class LaravelOmnipayManager {
             throw new \UnexpectedValueException("Gateway [$name] is not defined.");
         }
 
-        $gateway = $this->factory->create($config['driver']);
+        $gateway = $this->factory->create($config['driver'], $httpClient, $httpRequest);
 
         $class = trim(Helper::getGatewayClassName($config['driver']), "\\");
 
