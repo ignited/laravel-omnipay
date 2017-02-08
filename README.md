@@ -79,6 +79,30 @@ $app->configure('laravel-omnipay');
 
 Once you have published the configuration files, you can add your gateway options to the config file in `config/laravel-omnipay.php`.
 
+#### PayPal Express Example
+Here is an example of how to configure password, username and, signature with paypal express checkout driver
+
+```php
+...
+'gateways' => [
+    'paypal' => [
+        'driver'  => 'PayPal_Express',
+        'options' => [
+            'username'  => env( 'OMNIPAY_PAYPAL_EXPRESS_USERNAME', '' ),
+            'password'  => env( 'OMNIPAY_PAYPAL_EXPRESS_PASSWORD', '' ),
+            'signature' => env( 'OMNIPAY_PAYPAL_EXPRESS_SIGNATURE', '' ),
+            'solutionType' => env( 'OMNIPAY_PAYPAL_EXPRESS_SOLUTION_TYPE', '' ),
+            'landingPage'    => env( 'OMNIPAY_PAYPAL_EXPRESS_LANDING_PAGE', '' ),
+            'headerImageUrl' => env( 'OMNIPAY_PAYPAL_EXPRESS_HEADER_IMAGE_URL', '' ),
+            'brandName' =>  'Your app name',
+            'testMode' => env( 'OMNIPAY_PAYPAL_TEST_MODE', true )
+        ]
+    ],
+]
+...
+```
+
+
 ### Usage
 
 ```php
