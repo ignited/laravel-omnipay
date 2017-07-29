@@ -84,7 +84,7 @@ class LaravelOmnipayManager {
 
         foreach($config['options'] as $optionName=>$value)
         {
-            $method = 'set' . ucfirst($optionName);
+            $method = 'set' . ucfirst(camel_case($optionName));
 
             if ($reflection->hasMethod($method)) {
                 $gateway->{$method}($value);
