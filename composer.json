@@ -1,6 +1,6 @@
 {
     "name": "ignited/laravel-omnipay",
-    "description": "Integerates Omnipay with Laravel and provides an easy configuration.",
+    "description": "Integrates Omnipay with Laravel and provides an easy configuration.",
     "keywords": ["omnipay", "payments", "laravel", "laravel5"],
     "authors": [
         {
