@@ -21,7 +21,7 @@ Version `2.3` and onwards supports Laravel 5.4
 
 ### Omnipay 3 Support
 
-Version `3.0` and onwards supports Omnipay 3.0 and Laravel 5.4 (note 5.5+ haven't been tested yet)
+Version `3.0` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7
 
 ### Composer Configuration
 
