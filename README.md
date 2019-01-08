@@ -48,7 +48,7 @@ Add a ServiceProvider to your providers array in `config/app.php`:
 ```php
 'providers' => [
 
-	'Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider',
+	Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class
 
 ]
 ```
@@ -56,7 +56,7 @@ Add a ServiceProvider to your providers array in `config/app.php`:
 Add the `Omnipay` facade to your facades array:
 
 ```php
-	'Omnipay' => 'Ignited\LaravelOmnipay\Facades\OmnipayFacade',
+	'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class
 ```
 
 Finally, publish the configuration files:
