@@ -22,6 +22,14 @@
     "extra": {
         "branch-alias": {
             "dev-master": "3.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Ignited\\LaravelOmnipay\\LaravelOmnipayServiceProvider"
+            ],
+            "aliases": {
+                "Omnipay": "Ignited\\LaravelOmnipay\\Facades\\OmnipayFacade"
+            }
         }
     },
     "minimum-stability": "dev"
