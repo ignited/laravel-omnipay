@@ -27,23 +27,19 @@ Version `3.0` and onwards supports Omnipay 3.0 and Laravel 5.4 (note 5.5+ haven'
 
 Include the laravel-omnipay package as a dependency in your `composer.json`:
 
-    "ignited/laravel-omnipay": "3.*"
+    composer require ignited/laravel-omnipay "3.*"
     
 **Note:** You don't need to include the `omnipay/common` in your composer.json - it is a requirement of the `laravel-omnipay` package.
 
 Omnipay recently went refactoring that made it so that each package is now a seperate repository. The `omnipay/common` package includes the core framework. You will then need to include each gateway as you require. For example:
 
-    "omnipay/eway": "*"
+    composer require omnipay/eway "3.*"
     
 Alternatively you can include every gateway by requring:
 
-    "omnipay/omnipay": "*"
+    composer require omnipay/omnipay "3.*"
 
 **Note:** this requires a large amount of composer work as it needs to fetch each seperate repository. This is not recommended.
-
-### Installation
-
-Run `composer install` to download the dependencies.
 
 #### Laravel 5
 
