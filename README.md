@@ -19,11 +19,15 @@ Version `2.2` and onwards is using Omnipay 2.5
 
 Version `2.3` and onwards supports Laravel 5.4
 
+### Omnipay 3 Support
+
+Version `3.0` and onwards supports Omnipay 3.0 and Laravel 5.4 (note 5.5+ haven't been tested yet)
+
 ### Composer Configuration
 
 Include the laravel-omnipay package as a dependency in your `composer.json`:
 
-    "ignited/laravel-omnipay": "2.*"
+    "ignited/laravel-omnipay": "3.*"
     
 **Note:** You don't need to include the `omnipay/common` in your composer.json - it is a requirement of the `laravel-omnipay` package.
 
