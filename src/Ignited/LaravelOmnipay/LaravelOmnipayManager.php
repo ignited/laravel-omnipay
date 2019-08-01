@@ -1,6 +1,7 @@
 <?php namespace Ignited\LaravelOmnipay;
 
 use Closure;
+use Illuminate\Support\Str;
 use Omnipay\Common\GatewayFactory;
 use Omnipay\Common\Helper;
 use Omnipay\Common\CreditCard;
@@ -50,7 +51,7 @@ class LaravelOmnipayManager {
         $this->factory = $factory;
     }
 
-    /** 
+    /**
      * Get an instance of the specified gateway
      * @param  index of config array to use
      * @return Omnipay\Common\AbstractGateway
@@ -84,7 +85,7 @@ class LaravelOmnipayManager {
 
         foreach($config['options'] as $optionName=>$value)
         {
-            $method = 'set' . ucfirst($optionName);
+            $method = 'set' . Str::studly($optionName);
 
             if ($reflection->hasMethod($method)) {
                 $gateway->{$method}($value);
