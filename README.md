@@ -1,4 +1,4 @@
-Omnipay for Laravel 5 & Lumen
+Omnipay for Laravel 5/6 & Lumen
 ==============
 
 [![Total Downloads](https://img.shields.io/packagist/dt/ignited/laravel-omnipay.svg)](https://packagist.org/packages/ignited/laravel-omnipay)
@@ -22,6 +22,8 @@ Version `2.3` and onwards supports Laravel 5.4
 ### Omnipay 3 Support
 
 Version `3.0` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7
+
+Version `3.1` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7, 6.0
 
 ### Composer Configuration
 
