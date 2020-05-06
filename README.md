@@ -25,6 +25,8 @@ Version `3.0` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5
 
 Version `3.1` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7, 6.0
 
+Version `3.2` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7, 6.0, 7.0
+
 ### Composer Configuration
 
 Include the laravel-omnipay package as a dependency in your `composer.json`:
