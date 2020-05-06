@@ -1,4 +1,4 @@
-Omnipay for Laravel 5/6 & Lumen
+Omnipay for Laravel 5/6/7 & Lumen
 ==============
 
 [![Total Downloads](https://img.shields.io/packagist/dt/ignited/laravel-omnipay.svg)](https://packagist.org/packages/ignited/laravel-omnipay)
