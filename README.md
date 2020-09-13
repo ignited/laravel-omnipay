@@ -11,7 +11,7 @@ Integrates the [Omnipay](https://github.com/adrianmacneil/omnipay) PHP library w
 
 For Laravel 4 see the [version 1.x](https://github.com/ignited/laravel-omnipay/tree/1.1.0) tree
 
-### Now using Omnipay 2.3/2.5
+### Omnipay 2.3/2.5
  
 Version `2.0` and onwards has been updated to use Omnipay 2.3.
 
@@ -26,6 +26,8 @@ Version `3.0` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5
 Version `3.1` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7, 6.0
 
 Version `3.2` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7, 6.0, 7.0
+
+Version `3.3` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7, 6.0, 7.0, 8.0
 
 ### Composer Configuration
 
