@@ -46,6 +46,14 @@ Alternatively you can include every gateway by requring:
 
 **Note:** this requires a large amount of composer work as it needs to fetch each seperate repository. This is not recommended.
 
+### Guzzle 6
+
+If you are using Guzzle 6 you need to require the following package.
+
+    composer require php-http/guzzle6-adapter
+
+Guzzle 7 now implements a PSR http client compliant adapter. So there is no need to include this.
+
 #### Laravel 5
 
 Add a ServiceProvider to your providers array in `config/app.php`:
