@@ -1,32 +1,10 @@
-Omnipay for Laravel 5/6/7/8 & Lumen
+Omnipay for Laravel & Lumen
 ==============
 
 [![Total Downloads](https://img.shields.io/packagist/dt/ignited/laravel-omnipay.svg)](https://packagist.org/packages/ignited/laravel-omnipay)
 [![Latest Version](http://img.shields.io/packagist/v/ignited/laravel-omnipay.svg)](https://github.com/ignited/laravel-omnipay/releases)
 
-Integrates the [Omnipay](https://github.com/adrianmacneil/omnipay) PHP library with Laravel 5 via a ServiceProvider to make Configuring multiple payment tunnels a breeze!
-
-### Laravel 4 Support
-
-For Laravel 4 see the [version 1.x](https://github.com/ignited/laravel-omnipay/tree/1.1.0) tree
-
-### Omnipay 2.3/2.5
- 
-Version `2.0` and onwards has been updated to use Omnipay 2.3.
-
-Version `2.2` and onwards is using Omnipay 2.5
-
-Version `2.3` and onwards supports Laravel 5.4
-
-### Omnipay 3 Support
-
-Version `3.0` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7
-
-Version `3.1` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7, 6.0
-
-Version `3.2` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7, 6.0, 7.0
-
-Version `3.3` and onwards supports Omnipay 3.0 and Laravel 5.3, 5.4, 5.5, 5.6, 5.7, 6.0, 7.0, 8.0
+Integrates the [Omnipay](https://github.com/adrianmacneil/omnipay) PHP library with Laravel to make Configuring multiple payment tunnels a breeze!
 
 ### Composer Configuration
 
@@ -45,14 +23,6 @@ Alternatively you can include every gateway by requring:
     composer require omnipay/omnipay "3.*"
 
 **Note:** this requires a large amount of composer work as it needs to fetch each seperate repository. This is not recommended.
-
-### Guzzle 6
-
-If you are using Guzzle 6 you need to require the following package.
-
-    composer require php-http/guzzle6-adapter
-
-Guzzle 7 now implements a PSR http client compliant adapter. So there is no need to include this.
 
 #### Laravel 5
 
@@ -91,6 +61,14 @@ And also add the following to bootstrap/app.php
 ```php
 $app->configure('laravel-omnipay');
 ```
+
+### Guzzle 6
+
+If you are using Guzzle 6 you need to require the following package.
+
+    composer require php-http/guzzle6-adapter
+
+Guzzle 7 now implements a PSR http client compliant adapter. So there is no need to include this.
 
 ### Configuration
 
@@ -162,3 +140,6 @@ In addition you can take an instance of the gateway.
 ```php
 $gateway = Omnipay::gateway('eway');
 ```
+
+### License
+This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
