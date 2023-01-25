@@ -6,71 +6,33 @@ Omnipay for Laravel & Lumen
 
 Integrates the [Omnipay](https://github.com/adrianmacneil/omnipay) PHP library with Laravel to make Configuring multiple payment tunnels a breeze!
 
-### Composer Configuration
+## Installation
 
 Include the laravel-omnipay package as a dependency in your `composer.json`:
 
     composer require ignited/laravel-omnipay "3.*"
     
-**Note:** You don't need to include the `omnipay/common` in your composer.json - it is a requirement of the `laravel-omnipay` package.
+**Note:** You don't need to include the `omnipay/common` in your composer.json - it has already been included `laravel-omnipay`.
 
-Omnipay recently went refactoring that made it so that each package is now a seperate repository. The `omnipay/common` package includes the core framework. You will then need to include each gateway as you require. For example:
+### Install Required Providers
 
-    composer require omnipay/eway "3.*"
+Now just include each gateway as you require, to included PayPal for example:
+
+    composer require omnipay/paypal "3.*"
     
-Alternatively you can include every gateway by requring:
+Alternatively you can include every gateway by the following:
 
     composer require omnipay/omnipay "3.*"
 
 **Note:** this requires a large amount of composer work as it needs to fetch each seperate repository. This is not recommended.
 
-#### Laravel 5
+## Configuration
 
-Add a ServiceProvider to your providers array in `config/app.php`:
-
-```php
-'providers' => [
-
-	Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class
-
-]
-```
-
-Add the `Omnipay` facade to your facades array:
-
-```php
-	'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class
-```
-
-Finally, publish the configuration files:
+You can publish the configuration files using the `vendor:publish` command.
 
 ```
 php artisan vendor:publish --provider="Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider" --tag=config
 ```
-
-#### Lumen
-
-For `Lumen` add the following in your bootstrap/app.php
-```php
-$app->register(Ignited\LaravelOmnipay\LumenOmnipayServiceProvider::class);
-```
-
-Copy the laravel-omnipay.php file from the config directory to config/laravel-omnipay.php
-
-And also add the following to bootstrap/app.php
-```php
-$app->configure('laravel-omnipay');
-```
-
-### Guzzle 6
-
-If you are using Guzzle 6 you need to require the following package.
-
-    composer require php-http/guzzle6-adapter
-
-Guzzle 7 now implements a PSR http client compliant adapter. So there is no need to include this.
-
-### Configuration
 
 Once you have published the configuration files, you can add your gateway options to the config file in `config/laravel-omnipay.php`.
 
@@ -83,14 +45,14 @@ Here is an example of how to configure password, username and, signature with pa
     'paypal' => [
         'driver'  => 'PayPal_Express',
         'options' => [
-            'username'  => env( 'OMNIPAY_PAYPAL_EXPRESS_USERNAME', '' ),
-            'password'  => env( 'OMNIPAY_PAYPAL_EXPRESS_PASSWORD', '' ),
-            'signature' => env( 'OMNIPAY_PAYPAL_EXPRESS_SIGNATURE', '' ),
-            'solutionType' => env( 'OMNIPAY_PAYPAL_EXPRESS_SOLUTION_TYPE', '' ),
-            'landingPage'    => env( 'OMNIPAY_PAYPAL_EXPRESS_LANDING_PAGE', '' ),
-            'headerImageUrl' => env( 'OMNIPAY_PAYPAL_EXPRESS_HEADER_IMAGE_URL', '' ),
+            'username'  => 'coolusername',
+            'password'  => 'strongpassword',
+            'signature' => '',
+            'solutionType' => '',
+            'landingPage'    => '',
+            'headerImageUrl' => '',
             'brandName' =>  'Your app name',
-            'testMode' => env( 'OMNIPAY_PAYPAL_TEST_MODE', true )
+            'testMode' => true
         ]
     ],
 ]
@@ -98,7 +60,7 @@ Here is an example of how to configure password, username and, signature with pa
 ```
 
 
-### Usage
+## Usage
 
 ```php
 $cardInput = [
@@ -110,6 +72,7 @@ $cardInput = [
 ];
 
 $card = Omnipay::creditCard($cardInput);
+
 $response = Omnipay::purchase([
 	'amount'    => '100.00',
 	'returnUrl' => 'http://bobjones.com/payment/return',
@@ -125,7 +88,7 @@ This will use the gateway specified in the config as `default`.
 However, you can also specify a gateway to use.
 
 ```php
-Omnipay::setGateway('eway');
+Omnipay::setGateway('paypal');
 
 $response = Omnipay::purchase([
 	'amount' => '100.00',
@@ -135,11 +98,34 @@ $response = Omnipay::purchase([
 dd($response->getMessage());
 ```
     
-In addition you can take an instance of the gateway.
+In addition you can make an instance of the gateway.
 
 ```php
-$gateway = Omnipay::gateway('eway');
+$gateway = Omnipay::gateway('paypal');
 ```
 
-### License
+## Installation on Other Frameworks
+### Lumen
+
+For `Lumen` add the following in your bootstrap/app.php
+```php
+$app->register(Ignited\LaravelOmnipay\LumenOmnipayServiceProvider::class);
+```
+
+Copy the laravel-omnipay.php file from the config directory to config/laravel-omnipay.php
+
+And also add the following to bootstrap/app.php
+```php
+$app->configure('laravel-omnipay');
+```
+
+## Guzzle
+
+If you are using Guzzle 6 you need to require the following package.
+
+    composer require php-http/guzzle6-adapter
+
+Guzzle 7 now implements a PSR http client compliant adapter. So there is no need to include this.
+
+## License
 This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
